@@ -14,6 +14,8 @@ describe 'Etcd' do
       chef_run = ChefSpec::Runner.new
       node = chef_run.node
       Chef::Recipe::Etcd.node = chef_run.node
+      node.set[:etcd][:version] = '2.0.3'
+      expect(Chef::Recipe::Etcd.package_name).to eql 'etcd-v2.0.3-linux-amd64.tar.gz'
       node.set[:etcd][:version] = '1.3.0'
       expect(Chef::Recipe::Etcd.package_name).to eql 'etcd-v1.3.0-linux-amd64.tar.gz'
       node.set[:etcd][:version] = '0.3.0'
@@ -63,7 +65,7 @@ describe 'Etcd' do
       chef_run = ChefSpec::Runner.new
       chef_run.node.set[:etcd][:discovery] = '1.1.1.1'
       chef_run.converge('etcd')
-      Chef::Recipe::Etcd.args.should eql %Q{ -name fauxhai.local -discovery='1.1.1.1' -peer-addr=10.0.0.2:7001 -addr=10.0.0.2:4001 -snapshot=true}
+      Chef::Recipe::Etcd.args.should eql %Q{ -name fauxhai.local -discovery='1.1.1.1' -initial-advertise-peer-urls=10.0.0.2:7001 -advertise-client-urls=10.0.0.2:4001}
     end
   end
 end
