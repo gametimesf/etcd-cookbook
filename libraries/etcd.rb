@@ -35,10 +35,6 @@ class Chef
           cmd
         end
 
-        def snapshot
-          " -snapshot=#{node[:etcd][:snapshot]}"
-        end
-
         # determine node name
         def node_name
           a = " -name #{node.name}"
@@ -55,7 +51,6 @@ class Chef
           cmd << discovery_cmd
           cmd << lookup_addr('-initial-advertise-peer-urls', :initial_advertise_peer_urls, 2380)
           cmd << lookup_addr('-advertise-client-urls', :advertise_client_urls, 2380)
-          cmd << snapshot
           cmd
         end
         # rubocop:endable MethodLength
