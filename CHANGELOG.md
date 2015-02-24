@@ -1,3 +1,6 @@
+### 2.2.3
+* update to etcd 2.0.3
+
 ### 2.2.2
 * update to etcd 0.4.6
 * adds debian support

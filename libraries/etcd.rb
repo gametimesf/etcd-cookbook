@@ -26,11 +26,11 @@ class Chef
           cmd = ''
           val = node[:etcd][key.to_sym]
           if val.match(/.*:(\d)/)
-            cmd << " #{option}=#{val}"
+            cmd << " #{option}=http://#{val}"
           elsif val.length > 0
-            cmd << " #{option}=#{val}:#{port}"
+            cmd << " #{option}=http://#{val}:#{port}"
           else
-            cmd << " #{option}=#{node[:ipaddress]}:#{port}"
+            cmd << " #{option}=http://#{node[:ipaddress]}:#{port}"
           end
           cmd
         end
@@ -53,8 +53,8 @@ class Chef
           cmd = node[:etcd][:args].dup
           cmd << node_name
           cmd << discovery_cmd
-          cmd << lookup_addr('-peer-addr', :peer_addr, 7001)
-          cmd << lookup_addr('-addr', :addr, 4001)
+          cmd << lookup_addr('-initial-advertise-peer-urls', :initial_advertise_peer_urls, 2380)
+          cmd << lookup_addr('-advertise-client-urls', :advertise_client_urls, 2380)
           cmd << snapshot
           cmd
         end
