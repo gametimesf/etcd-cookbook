@@ -50,7 +50,7 @@ class Chef
           cmd << node_name
           cmd << discovery_cmd
           cmd << lookup_addr('-initial-advertise-peer-urls', :initial_advertise_peer_urls, 2380)
-          cmd << lookup_addr('-advertise-client-urls', :advertise_client_urls, 2380)
+          cmd << lookup_addr('-listen-peer-urls', :listen_peer_urls, 2380)
           cmd
         end
         # rubocop:endable MethodLength

@@ -5,7 +5,7 @@ default[:etcd][:install_method] = 'binary'
 default[:etcd][:initial_advertise_peer_urls] = ''
 
 # the adress that etcd uses publically. if not set we compute it to node.ipaddress:4001
-default[:etcd][:advertise_client_urls] = ''
+default[:etcd][:listen_peer_urls] = ''
 
 # set if you want to override the node name. It uses fqdn by default
 default[:etcd][:name] = nil
