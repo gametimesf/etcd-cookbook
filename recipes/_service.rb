@@ -9,14 +9,14 @@ init = false
 upstart = true
 init_provider = Chef::Provider::Service::Upstart
 
-if node[:platform_family] == 'rhel' && node[:platform_version].to_i >= 7
-  systemd = true
-  upstart = false
-  init_provider = Chef::Provider::Service::Systemd
-end
-if node[:platform] == 'debian'
-  init_provider = Chef::Provider::Service::Init::Debian
+if node[:init_package] == 'init'
+  init_provider = Chef::Provider::Service::Init
   init = true
+  upstart = false
+end
+if node[:init_package] == 'systemd'
+  init_provider = Chef::Provider::Service::Systemd
+  systemd = true
   upstart = false
 end
 
