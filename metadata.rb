@@ -1,5 +1,5 @@
 name 'etcd'
-version '2.2.3'
+version '2.2.4'
 
 depends 'ark'
 depends 'partial_search', '~> 1.0.6'
