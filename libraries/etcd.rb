@@ -15,7 +15,7 @@ class Chef
           cmd = ''
           discovery =  node[:etcd][:discovery]
           if discovery.length > 0
-            cmd << " -discovery='#{discovery}'"
+            cmd << " -discovery=#{discovery}"
           elsif slave == true
             cmd << ' -peers-file=/etc/etcd_members'
           end
