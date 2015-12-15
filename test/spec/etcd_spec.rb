@@ -14,8 +14,8 @@ describe 'Etcd' do
       chef_run = ChefSpec::Runner.new
       node = chef_run.node
       Chef::Recipe::Etcd.node = chef_run.node
-      node.set[:etcd][:version] = '2.0.3'
-      expect(Chef::Recipe::Etcd.package_name).to eql 'etcd-v2.0.3-linux-amd64.tar.gz'
+      node.set[:etcd][:version] = '2.2.2'
+      expect(Chef::Recipe::Etcd.package_name).to eql 'etcd-v2.2.2-linux-amd64.tar.gz'
       node.set[:etcd][:version] = '1.3.0'
       expect(Chef::Recipe::Etcd.package_name).to eql 'etcd-v1.3.0-linux-amd64.tar.gz'
       node.set[:etcd][:version] = '0.3.0'
@@ -25,7 +25,7 @@ describe 'Etcd' do
       node.set[:etcd][:version] = '0.0.1'
       expect(Chef::Recipe::Etcd.package_name).to eql 'etcd-v0.0.1-Linux-x86_64.tar.gz'
     end
-    
+
     it ' raises when version is nil or invalid' do
       node.set[:etcd][:version] = nil
       expect {Chef::Recipe::Etcd.package_name}.to raise_error
