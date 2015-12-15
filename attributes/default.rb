@@ -39,13 +39,13 @@ default[:etcd][:upstart][:start_on] = 'started networking'
 default[:etcd][:upstart][:stop_on] = 'shutdown'
 
 # Release to install
-default[:etcd][:version] = '2.0.3'
+default[:etcd][:version] = '2.2.2'
 
 # Auto respawn
 default[:etcd][:respawn] = false
 
 # Sha for github tarball Linux by default
-default[:etcd][:sha256] = '0d4dd3ec5c3961433f514544ae7106676f313fe2fa7aa85cde0f2454f1a65b2f'
+default[:etcd][:sha256] = '90aff7364caa43932fd46974825af20e0ecb70fe7e01981e2d3a496106f147e7'
 
 # Use this to supply your own url to a tarball
 default[:etcd][:url] = nil
@@ -56,7 +56,7 @@ default[:etcd][:state_dir] = '/var/cache/etcd/state'
 # Used for source_install method
 default[:etcd][:source][:repo] = 'https://github.com/coreos/etcd'
 default[:etcd][:source][:revision] = 'HEAD'
-default[:etcd][:source][:go_ver] = '1.4.1'
+default[:etcd][:source][:go_ver] = '1.5.2'
 default[:etcd][:source][:go_url] = nil
 default[:etcdctl][:source][:repo] = 'https://github.com/coreos/etcdctl'
 default[:etcdctl][:source][:revision] = 'HEAD'
