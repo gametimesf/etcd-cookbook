@@ -1,10 +1,16 @@
 # Encoding: UTF-8
 default[:etcd][:install_method] = 'binary'
 
-# address to announce to peers specified as ip:port or ip (will default to :7001)
+# address to announce to peers specified as ip:port or ip (will default to node.ipaddress:2379)
+default[:etcd][:initial_advertise_client_urls] = ''
+
+# address to announce to peers specified as ip:port or ip (will default to node.ipaddress:2380)
 default[:etcd][:initial_advertise_peer_urls] = ''
 
-# the adress that etcd uses publicly. if not set we compute it to node.ipaddress:4001
+# the adress that etcd uses publicly. if not set we compute it to node.ipaddress:2379
+default[:etcd][:listen_client_urls] = ''
+
+# the adress that etcd uses publicly. if not set we compute it to node.ipaddress:2380
 default[:etcd][:listen_peer_urls] = ''
 
 # set if you want to override the node name. It uses fqdn by default
