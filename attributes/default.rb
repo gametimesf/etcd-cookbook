@@ -2,7 +2,7 @@
 default[:etcd][:install_method] = 'binary'
 
 # address to announce to peers specified as ip:port or ip (will default to node.ipaddress:2379)
-default[:etcd][:initial_advertise_client_urls] = ''
+default[:etcd][:advertise_client_urls] = ''
 
 # address to announce to peers specified as ip:port or ip (will default to node.ipaddress:2380)
 default[:etcd][:initial_advertise_peer_urls] = ''
