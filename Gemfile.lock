@@ -1,21 +1,8 @@
-GIT
-  remote: https://github.com/mlafeldt/foodcritic.git
-  revision: 605d86ffcf0138009c13af8c3c47e09f943b368f
-  branch: improve-rake-task
-  specs:
-    foodcritic (3.0.3)
-      erubis
-      gherkin (~> 2.11.7)
-      nokogiri (~> 1.5.4)
-      rake
-      treetop (~> 1.4.10)
-      yajl-ruby (~> 1.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
-    ast (1.1.0)
+    ast (2.1.0)
     berkshelf (3.1.3)
       addressable (~> 2.3.4)
       berkshelf-api-client (~> 1.2)
@@ -88,8 +75,16 @@ GEM
       net-ssh
       ohai
     ffi (1.9.3)
+    foodcritic (5.0.0)
+      erubis
+      gherkin (~> 2.11)
+      nokogiri (>= 1.5, < 2.0)
+      rake
+      rufus-lru (~> 1.0)
+      treetop (~> 1.4)
+      yajl-ruby (~> 1.1)
     formatador (0.2.4)
-    gherkin (2.11.8)
+    gherkin (2.12.2)
       multi_json (~> 1.3)
     git (1.2.6)
     guard (1.8.3)
@@ -123,6 +118,7 @@ GEM
     lumberjack (1.0.4)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile2 (2.0.0)
     minitar (0.5.4)
     mixlib-authentication (1.3.0)
       mixlib-log
@@ -131,7 +127,7 @@ GEM
     mixlib-log (1.6.0)
     mixlib-shellout (1.3.0)
     moneta (0.6.0)
-    multi_json (1.10.1)
+    multi_json (1.11.2)
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
     net-scp (1.1.2)
@@ -142,8 +138,9 @@ GEM
     net-ssh-multi (1.2.0)
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
-    nio4r (1.0.0)
-    nokogiri (1.5.11)
+    nio4r (1.1.1)
+    nokogiri (1.6.7)
+      mini_portile2 (~> 2.0.0.rc2)
     octokit (3.2.0)
       sawyer (~> 0.5.3)
     ohai (6.20.0)
@@ -154,10 +151,10 @@ GEM
       mixlib-shellout
       systemu (~> 2.5.2)
       yajl-ruby
-    parser (2.1.7)
-      ast (~> 1.1)
+    parser (2.1.9)
+      ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     powerpack (0.0.9)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -206,6 +203,7 @@ GEM
       parser (~> 2.1.3)
       powerpack (~> 0.0.6)
       rainbow (>= 1.99.1, < 3.0)
+    rufus-lru (1.0.5)
     safe_yaml (1.0.1)
     sawyer (0.5.4)
       addressable (~> 2.3.5)
@@ -225,9 +223,8 @@ GEM
     thor (0.19.1)
     timers (3.0.1)
       hitimes
-    treetop (1.4.15)
-      polyglot
-      polyglot (>= 0.3.1)
+    treetop (1.6.3)
+      polyglot (~> 0.3)
     varia_model (0.4.0)
       buff-extensions (~> 1.0)
       hashie (>= 2.0.2, < 3.0.0)
@@ -239,7 +236,7 @@ PLATFORMS
 DEPENDENCIES
   berkshelf (>= 3.0.0)
   chefspec (>= 3.2.0)
-  foodcritic!
+  foodcritic
   git
   guard
   guard-kitchen
@@ -250,3 +247,6 @@ DEPENDENCIES
   rake
   rubocop
   test-kitchen
+
+BUNDLED WITH
+   1.10.6
