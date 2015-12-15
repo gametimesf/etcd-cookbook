@@ -66,7 +66,7 @@ if node[:etcd][:nodes].empty? && Chef::Config[:solo] != true
                            keys: {
                              'node' => ['fqdn']
                            }
-  ).map do |n|
+                          ).map do |n|
     # Return hostname/fqdn
     n['node']
   end
@@ -88,7 +88,7 @@ end.map do |hostname|
 end.map do |ip|
   # Append port
   "#{ip}:7001"
-end.join ','  # Join in one string
+end.join ',' # Join in one string
 # rubocop:enable MultilineBlockChain
 
 log "Setting up etcd members: #{cluster_str}"

@@ -13,7 +13,7 @@ class Chef
         # return cmd args for discovery/cluster members
         def discovery_cmd
           cmd = ''
-          discovery =  node[:etcd][:discovery]
+          discovery = node[:etcd][:discovery]
           if discovery.length > 0
             cmd << " -discovery=#{discovery}"
           elsif slave == true
@@ -75,7 +75,7 @@ class Chef
         #
         def bin_url
           version = node[:etcd][:version]
-          if  node[:etcd][:url]
+          if node[:etcd][:url]
             node[:etcd][:url]
           else
             "https://github.com/coreos/etcd/releases/download/v#{version}/#{package_name}"
