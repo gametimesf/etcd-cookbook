@@ -1,5 +1,8 @@
-name 'etcd'
-version '2.2.8'
+name             'etcd'
+maintainer       'Gametime Operations'
+maintainer_email 'operations@gametime.co'
+license          'Apache v2.0'
+version '2.2.9'
 
 depends 'ark'
 depends 'partial_search', '~> 1.0.6'
