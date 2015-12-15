@@ -55,7 +55,7 @@ end
 # TODO: use this on other sytemd platforms
 template '/etc/systemd/system/etcd.service' do
   mode 0644
-  variables(args: Etcd.args)
+  variables ( lazy {{ args: Etcd.args }} )
   notifies :run, 'execute[systemd_reload_units]', :immediate
   notifies :restart, 'service[etcd]' if node[:etcd][:trigger_restart]
   only_if { systemd }
